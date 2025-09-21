@@ -7,6 +7,7 @@ import Subscription from '@/components/Subscription';
 import Gallery from '@/components/Gallery';
 import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
+import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Profile from '@/components/Profile';
 import Favorites from '@/components/Favorites';
@@ -55,6 +56,7 @@ const Index = () => {
         <Menu />
         {!user && <Subscription />}
         <Gallery />
+        <Map />
         {!user && <Blog />}
         <Contact />
       </>

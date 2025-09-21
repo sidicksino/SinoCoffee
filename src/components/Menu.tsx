@@ -198,111 +198,113 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-20 bg-warm-bg">
+    <section id="menu" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-coffee-dark mb-4 px-4">
-            Our Coffee Menu
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-cream mb-6">
+            Popular Menu
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-coffee-medium max-w-2xl mx-auto leading-relaxed px-4">
-            Crafted with premium beans from around the world, each cup is a masterpiece 
-            of flavor and artistry.
+          <div className="w-24 h-1 bg-gradient-accent mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-cream/80 max-w-3xl mx-auto leading-relaxed">
+            Discover our signature blends and artisanal creations, each crafted with 
+            the finest beans and served with meticulous attention to detail.
           </p>
         </div>
 
         {/* Menu Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {loading ? (
             // Loading skeleton
             Array.from({ length: 8 }).map((_, index) => (
-              <Card key={index} className="animate-pulse bg-gradient-card border-0">
-                <CardContent className="p-0">
-                  <div className="h-48 sm:h-56 md:h-64 bg-muted rounded-t-lg"></div>
-                  <div className="p-6">
-                    <div className="h-6 bg-muted rounded mb-3"></div>
-                    <div className="h-4 bg-muted rounded mb-2"></div>
-                    <div className="h-4 bg-muted rounded mb-4 w-3/4"></div>
-                    <div className="h-10 bg-muted rounded"></div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={index} className="animate-pulse">
+                <div className="bg-card rounded-3xl p-6 shadow-card border border-gold/10">
+                  <div className="h-48 bg-muted/20 rounded-2xl mb-4"></div>
+                  <div className="h-6 bg-muted/20 rounded mb-3"></div>
+                  <div className="h-4 bg-muted/20 rounded mb-2"></div>
+                  <div className="h-4 bg-muted/20 rounded mb-4 w-3/4"></div>
+                  <div className="h-10 bg-muted/20 rounded-xl"></div>
+                </div>
+              </div>
             ))
           ) : (
             menuItems.map((item) => (
-              <Card key={item.id} className="group hover:shadow-warm transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 hover:scale-105 bg-gradient-card border-0 relative overflow-hidden animate-fade-in">
-                <CardContent className="p-0">
-                  {/* Image Container */}
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <img 
-                      src={item.image_url || imageMap[item.name] || espressoImage} 
-                      alt={`${item.name} coffee`}
-                      className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {item.popular && (
-                      <div className="absolute top-4 left-4 bg-gradient-accent text-coffee-dark px-3 py-1 rounded-full text-sm font-semibold shadow-gold animate-pulse">
-                        Popular
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center space-x-1">
-                      <Star className="h-4 w-4 text-gold fill-current" />
-                      <span className="text-sm font-medium text-coffee-dark">{item.rating.toFixed(1)}</span>
+              <div 
+                key={item.id} 
+                className="group bg-card rounded-3xl p-6 shadow-card hover:shadow-warm transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 border border-gold/10 hover:border-gold/30 animate-fade-in backdrop-blur-sm"
+              >
+                {/* Image Container */}
+                <div className="relative overflow-hidden rounded-2xl mb-6">
+                  <img 
+                    src={item.image_url || imageMap[item.name] || espressoImage} 
+                    alt={`${item.name} coffee`}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {item.popular && (
+                    <div className="absolute top-3 left-3 bg-gradient-accent text-coffee-dark px-3 py-1.5 rounded-full text-xs font-bold shadow-gold">
+                      POPULAR
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className={`absolute bottom-4 right-4 w-10 h-10 rounded-full p-0 backdrop-blur-sm transition-all duration-300 ${
-                        favorites.includes(parseInt(item.id)) 
-                          ? 'bg-red-500/20 text-red-500 hover:bg-red-500/30' 
-                          : 'bg-background/90 text-muted-foreground hover:bg-background hover:text-red-500'
-                      }`}
-                      onClick={() => toggleFavorite({
-                        id: parseInt(item.id),
-                        name: item.name,
-                        price: `$${item.price.toFixed(2)}`,
-                        image: item.image_url || imageMap[item.name] || espressoImage
-                      })}
-                    >
-                      <Heart className={`h-4 w-4 transition-all duration-300 ${favorites.includes(parseInt(item.id)) ? 'fill-current scale-110' : ''}`} />
-                    </Button>
+                  )}
+                  <div className="absolute top-3 right-3 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center space-x-1">
+                    <Star className="h-3.5 w-3.5 text-gold fill-current" />
+                    <span className="text-xs font-semibold text-cream">{item.rating.toFixed(1)}</span>
                   </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={`absolute bottom-3 right-3 w-10 h-10 rounded-full p-0 backdrop-blur-sm transition-all duration-300 ${
+                      favorites.includes(parseInt(item.id)) 
+                        ? 'bg-red-500/30 text-red-400 hover:bg-red-500/40' 
+                        : 'bg-card/80 text-cream/60 hover:bg-card hover:text-red-400'
+                    }`}
+                    onClick={() => toggleFavorite({
+                      id: parseInt(item.id),
+                      name: item.name,
+                      price: `$${item.price.toFixed(2)}`,
+                      image: item.image_url || imageMap[item.name] || espressoImage
+                    })}
+                  >
+                    <Heart className={`h-4 w-4 transition-all duration-300 ${favorites.includes(parseInt(item.id)) ? 'fill-current scale-110' : ''}`} />
+                  </Button>
+                </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="font-serif text-xl font-semibold text-coffee-dark">{item.name}</h3>
-                      <span className="font-bold text-lg text-coffee-dark">${item.price.toFixed(2)}</span>
-                    </div>
-                    
-                    <p className="text-coffee-medium text-sm leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-
-                    <Button 
-                      className="w-full bg-coffee-dark hover:bg-coffee-medium text-cream transition-all duration-300 group-hover:shadow-card hover:scale-105 active:scale-95"
-                      onClick={() => handleAddToCart({
-                        id: parseInt(item.id),
-                        name: item.name,
-                        price: `$${item.price.toFixed(2)}`,
-                        image: item.image_url || imageMap[item.name] || espressoImage
-                      })}
-                    >
-                      <Plus className="h-4 w-4 mr-2 transition-transform group-hover:rotate-90" />
-                      Add to Cart
-                    </Button>
+                {/* Content */}
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start">
+                    <h3 className="font-serif text-xl font-bold text-cream group-hover:text-gold transition-colors duration-300">
+                      {item.name}
+                    </h3>
+                    <span className="font-bold text-xl text-gold">${item.price.toFixed(2)}</span>
                   </div>
-                </CardContent>
-              </Card>
+                  
+                  <p className="text-cream/70 text-sm leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
+
+                  <Button 
+                    className="w-full bg-gradient-accent text-coffee-dark font-semibold hover:shadow-gold transition-all duration-500 group-hover:scale-105 active:scale-95 rounded-xl py-2.5"
+                    onClick={() => handleAddToCart({
+                      id: parseInt(item.id),
+                      name: item.name,
+                      price: `$${item.price.toFixed(2)}`,
+                      image: item.image_url || imageMap[item.name] || espressoImage
+                    })}
+                  >
+                    <Plus className="h-4 w-4 mr-2 transition-transform group-hover:rotate-90" />
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
             ))
           )}
         </div>
 
         {/* View All Menu Button */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Button 
             variant="outline" 
             size="lg" 
-            className="border-coffee-dark text-coffee-dark hover:bg-coffee-dark hover:text-cream"
+            className="border-2 border-gold/40 text-gold hover:bg-gold hover:text-coffee-dark transition-all duration-500 px-8 py-3 rounded-full font-semibold"
             onClick={handleViewCompleteMenu}
           >
             View Complete Menu

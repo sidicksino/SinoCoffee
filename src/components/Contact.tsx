@@ -98,14 +98,14 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-warm-bg">
+    <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-coffee-dark mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
             Get in Touch
           </h2>
-          <p className="text-xl text-coffee-medium max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We'd love to hear from you. Visit us, call us, or send us a message. 
             Let's brew something amazing together.
           </p>
@@ -113,70 +113,70 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="bg-gradient-card border-0 shadow-warm">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-8">
-              <h3 className="font-serif text-2xl font-semibold text-coffee-dark mb-6">Send us a Message</h3>
+              <h3 className="font-serif text-2xl font-semibold text-card-foreground mb-6">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-coffee-dark mb-2">First Name</label>
+                    <label className="block text-sm font-medium text-card-foreground mb-2">First Name</label>
                     <Input 
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="Your first name"
-                      className="border-coffee-light focus:border-coffee-dark focus:ring-coffee-dark"
+                      className="border-input focus:border-ring focus:ring-ring"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-coffee-dark mb-2">Last Name</label>
+                    <label className="block text-sm font-medium text-card-foreground mb-2">Last Name</label>
                     <Input 
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Your last name"
-                      className="border-coffee-light focus:border-coffee-dark focus:ring-coffee-dark"
+                      className="border-input focus:border-ring focus:ring-ring"
                       required
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-coffee-dark mb-2">Email</label>
+                  <label className="block text-sm font-medium text-card-foreground mb-2">Email</label>
                   <Input 
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
-                    className="border-coffee-light focus:border-coffee-dark focus:ring-coffee-dark"
+                    className="border-input focus:border-ring focus:ring-ring"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-coffee-dark mb-2">Subject</label>
+                  <label className="block text-sm font-medium text-card-foreground mb-2">Subject</label>
                   <Input 
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
                     placeholder="What's this about?"
-                    className="border-coffee-light focus:border-coffee-dark focus:ring-coffee-dark"
+                    className="border-input focus:border-ring focus:ring-ring"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-coffee-dark mb-2">Message</label>
+                  <label className="block text-sm font-medium text-card-foreground mb-2">Message</label>
                   <Textarea 
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us more..."
                     rows={4}
-                    className="border-coffee-light focus:border-coffee-dark focus:ring-coffee-dark resize-none"
+                    className="border-input focus:border-ring focus:ring-ring resize-none"
                     required
                   />
                 </div>
@@ -184,7 +184,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-coffee-dark hover:bg-coffee-medium text-cream transition-all duration-300 disabled:opacity-50"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 disabled:opacity-50"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
@@ -197,16 +197,16 @@ const Contact = () => {
             {/* Contact Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {contactInfo.map((item, index) => (
-                <Card key={index} className="bg-gradient-card border-0 shadow-card hover:shadow-warm transition-all duration-300">
+                <Card key={index} className="bg-card border-border shadow-md hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center flex-shrink-0 shadow-gold">
-                        <item.icon className="h-6 w-6 text-coffee-dark" />
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <item.icon className="h-6 w-6 text-accent-foreground" />
                       </div>
                       <div>
-                        <h4 className="font-serif text-lg font-semibold text-coffee-dark mb-2">{item.title}</h4>
+                        <h4 className="font-serif text-lg font-semibold text-card-foreground mb-2">{item.title}</h4>
                         {item.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-coffee-medium text-sm">{detail}</p>
+                          <p key={detailIndex} className="text-muted-foreground text-sm">{detail}</p>
                         ))}
                       </div>
                     </div>
@@ -216,31 +216,31 @@ const Contact = () => {
             </div>
 
             {/* Map Placeholder */}
-            <Card className="bg-gradient-card border-0 shadow-warm">
+            <Card className="bg-card border-border shadow-lg">
               <CardContent className="p-8">
-                <div className="bg-coffee-light/20 rounded-lg h-64 flex items-center justify-center">
+                <div className="bg-muted/20 rounded-lg h-64 flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="h-12 w-12 text-coffee-medium mx-auto mb-4" />
-                    <p className="text-coffee-medium">Interactive Map Coming Soon</p>
-                    <p className="text-sm text-coffee-light mt-2">123 Coffee Street, Downtown District</p>
+                    <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                    <p className="text-muted-foreground">Interactive Map Coming Soon</p>
+                    <p className="text-sm text-muted-foreground/70 mt-2">123 Coffee Street, Downtown District</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Social Media */}
-            <Card className="bg-gradient-card border-0 shadow-card">
+            <Card className="bg-card border-border shadow-md">
               <CardContent className="p-6">
-                <h4 className="font-serif text-lg font-semibold text-coffee-dark mb-4 text-center">Follow Us</h4>
+                <h4 className="font-serif text-lg font-semibold text-card-foreground mb-4 text-center">Follow Us</h4>
                 <div className="flex justify-center space-x-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
-                      className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center hover:shadow-gold transition-all duration-300 transform hover:scale-110"
+                      className="w-12 h-12 bg-accent rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300 transform hover:scale-110"
                       aria-label={social.name}
                     >
-                      <social.icon className="h-6 w-6 text-coffee-dark" />
+                      <social.icon className="h-6 w-6 text-accent-foreground" />
                     </a>
                   ))}
                 </div>

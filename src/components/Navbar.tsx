@@ -78,15 +78,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-card">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-gold/20 shadow-warm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Coffee className="h-8 w-8 text-coffee-dark" />
+            <Coffee className="h-8 w-8 text-gold" />
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-lg text-coffee-dark">Sino</span>
-              <span className="font-sans text-sm text-coffee-medium -mt-1">Coffee</span>
+              <span className="font-serif font-bold text-lg text-cream">Sino</span>
+              <span className="font-sans text-sm text-gold -mt-1">Coffee</span>
             </div>
           </div>
 
@@ -96,7 +96,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-coffee-medium hover:text-coffee-dark transition-colors duration-200 font-medium"
+                className="text-cream/80 hover:text-gold transition-colors duration-200 font-medium hover:scale-105 transform"
               >
                 {item.name}
               </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
             {isAdmin && (
               <Link
                 to="/admin"
-                className="flex items-center space-x-1 text-coffee-medium hover:text-coffee-dark transition-colors duration-200 font-medium"
+                className="flex items-center space-x-1 text-cream/80 hover:text-gold transition-all duration-200 font-medium hover:scale-105 transform"
               >
                 <Shield className="h-4 w-4" />
                 <span>Admin</span>
@@ -117,15 +117,15 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <Button 
                   size="sm" 
-                  className="bg-gradient-accent text-coffee-dark hover:shadow-gold"
+                  className="bg-gradient-accent text-coffee-dark hover:shadow-gold transition-all duration-300 hover:scale-105 font-medium rounded-full"
                   onClick={handleCartClick}
                 >
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Cart ({getTotalItems()})
                 </Button>
-                <Avatar className="h-8 w-8 cursor-pointer" onClick={() => window.location.href = '#profile'}>
+                <Avatar className="h-8 w-8 cursor-pointer ring-2 ring-gold/30 hover:ring-gold/60 transition-all duration-300" onClick={() => window.location.href = '#profile'}>
                   <AvatarImage src={profile?.avatar_url || undefined} />
-                  <AvatarFallback className="text-xs">
+                  <AvatarFallback className="text-xs bg-card text-cream">
                     {getInitials(user.email || '')}
                   </AvatarFallback>
                 </Avatar>
@@ -134,7 +134,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <Button 
                   size="sm" 
-                  className="bg-gradient-accent text-coffee-dark hover:shadow-gold"
+                  className="bg-gradient-accent text-coffee-dark hover:shadow-gold transition-all duration-300 hover:scale-105 font-medium rounded-full"
                   onClick={handleCartClick}
                 >
                   <ShoppingCart className="h-4 w-4 mr-2" />
@@ -144,7 +144,7 @@ const Navbar = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => window.location.href = '/auth'}
-                  className="border-coffee-light text-coffee-medium hover:bg-coffee-light"
+                  className="border-gold/40 text-cream hover:bg-gold hover:text-coffee-dark transition-all duration-300 hover:scale-105 font-medium rounded-full"
                 >
                   <User className="h-4 w-4 mr-2" />
                   Sign In
@@ -159,7 +159,7 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-coffee-dark"
+              className="text-cream hover:text-gold hover:bg-card/50"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -168,13 +168,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-background border-t border-border">
+          <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-gold/20 rounded-b-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-coffee-medium hover:text-coffee-dark transition-colors duration-200"
+                  className="block px-3 py-2 text-cream/80 hover:text-gold hover:bg-card/50 transition-all duration-200 rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -185,17 +185,17 @@ const Navbar = () => {
               {isAdmin && (
                 <Link
                   to="/admin"
-                  className="flex items-center space-x-2 px-3 py-2 text-coffee-medium hover:text-coffee-dark transition-colors duration-200"
+                  className="flex items-center space-x-2 px-3 py-2 text-cream/80 hover:text-gold hover:bg-card/50 transition-all duration-200 rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   <Shield className="h-4 w-4" />
                   <span>Admin Dashboard</span>
                 </Link>
               )}
-              <div className="px-3 py-2 space-y-2">
+              <div className="px-3 py-2 space-y-3">
                 <Button 
                   size="sm" 
-                  className="w-full bg-gradient-accent text-coffee-dark"
+                  className="w-full bg-gradient-accent text-coffee-dark hover:shadow-gold font-medium rounded-full"
                   onClick={() => {
                     setIsOpen(false);
                     handleCartClick();
@@ -206,15 +206,15 @@ const Navbar = () => {
                 </Button>
                 
                 {user ? (
-                  <div className="flex items-center space-x-3 px-3 py-2">
-                    <Avatar className="h-8 w-8 cursor-pointer" onClick={() => { setIsOpen(false); window.location.href = '#profile'; }}>
+                  <div className="flex items-center space-x-3 px-3 py-2 bg-card/30 rounded-lg">
+                    <Avatar className="h-8 w-8 cursor-pointer ring-2 ring-gold/30" onClick={() => { setIsOpen(false); window.location.href = '#profile'; }}>
                       <AvatarImage src={profile?.avatar_url || undefined} />
-                      <AvatarFallback className="text-xs">
+                      <AvatarFallback className="text-xs bg-card text-cream">
                         {getInitials(user.email || '')}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <div className="text-sm font-medium text-coffee-dark">
+                      <div className="text-sm font-medium text-cream">
                         {profile?.display_name || user.email?.split('@')[0]}
                       </div>
                     </div>
@@ -227,7 +227,7 @@ const Navbar = () => {
                       setIsOpen(false);
                       window.location.href = '/auth';
                     }}
-                    className="w-full border-coffee-light text-coffee-medium hover:bg-coffee-light"
+                    className="w-full border-gold/40 text-cream hover:bg-gold hover:text-coffee-dark font-medium rounded-full"
                   >
                     <User className="h-4 w-4 mr-2" />
                     Sign In

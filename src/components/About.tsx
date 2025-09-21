@@ -26,50 +26,56 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-background relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-coffee-dark/20"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-coffee-dark mb-4 px-4">
-            About SinoCoffee
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-cream mb-6">
+            Our Story
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-coffee-medium max-w-3xl mx-auto leading-relaxed px-4">
+          <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
+          <p className="text-lg text-cream/80 max-w-4xl mx-auto leading-relaxed">
             Born from a passion for exceptional coffee and a commitment to bringing people together, 
             SinoCoffee represents the perfect harmony between tradition and innovation in the heart of the city.
           </p>
         </div>
 
-        {/* Mission Statement */}
-        <div className="bg-gradient-card rounded-2xl p-8 mb-20 shadow-warm">
-          <div className="text-center max-w-4xl mx-auto">
-            <h3 className="font-serif text-2xl font-semibold text-coffee-dark mb-4">Our Mission</h3>
-            <p className="text-coffee-medium leading-relaxed text-lg mb-6">
+        {/* Mission Statement Card */}
+        <div className="bg-card rounded-3xl p-12 mb-20 shadow-warm border border-gold/10 backdrop-blur-sm">
+          <div className="text-center max-w-5xl mx-auto">
+            <h3 className="font-serif text-3xl font-bold text-cream mb-6">Our Mission</h3>
+            <p className="text-cream/80 leading-relaxed text-lg mb-10">
               To create a space where every cup tells a story, every conversation matters, and every moment 
               becomes a cherished memory. We believe in the power of coffee to connect cultures, inspire creativity, 
               and fuel dreams.
             </p>
-            <div className="flex justify-center items-center space-x-8">
-              <div className="text-center">
-                <div className="font-serif text-3xl font-bold text-gold mb-1">100%</div>
-                <div className="text-coffee-medium text-sm">Ethical Sourcing</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center bg-card/50 rounded-2xl p-6 border border-gold/10">
+                <div className="font-serif text-4xl font-bold text-gold mb-2">100%</div>
+                <div className="text-cream/80 font-medium">Ethical Sourcing</div>
               </div>
-              <div className="text-center">
-                <div className="font-serif text-3xl font-bold text-gold mb-1">24/7</div>
-                <div className="text-coffee-medium text-sm">Fresh Roasting</div>
+              <div className="text-center bg-card/50 rounded-2xl p-6 border border-gold/10">
+                <div className="font-serif text-4xl font-bold text-gold mb-2">24/7</div>
+                <div className="text-cream/80 font-medium">Fresh Roasting</div>
               </div>
-              <div className="text-center">
-                <div className="font-serif text-3xl font-bold text-gold mb-1">∞</div>
-                <div className="text-coffee-medium text-sm">Passion</div>
+              <div className="text-center bg-card/50 rounded-2xl p-6 border border-gold/10">
+                <div className="font-serif text-4xl font-bold text-gold mb-2">∞</div>
+                <div className="text-cream/80 font-medium">Passion</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Story Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h3 className="font-serif text-3xl font-semibold text-coffee-dark mb-6">Our Story</h3>
-            <div className="space-y-4 text-coffee-medium leading-relaxed">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="space-y-6">
+            <h3 className="font-serif text-3xl font-bold text-cream">Our Journey</h3>
+            <div className="space-y-6 text-cream/80 leading-relaxed">
               <p>
                 Founded in 2020 by coffee enthusiasts Maria Chen and David Wu, SinoCoffee began as a small 
                 roastery with a big dream: to create a coffee experience that honors both Eastern and Western 
@@ -87,20 +93,18 @@ const About = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="bg-gradient-card rounded-2xl p-8 shadow-warm">
-              <div className="text-center">
-                <div className="font-serif text-6xl font-bold text-coffee-dark mb-2">2020</div>
-                <div className="text-coffee-medium mb-4">Founded with Passion</div>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="font-serif text-2xl font-bold text-gold">50k+</div>
-                    <div className="text-sm text-coffee-medium">Cups Served</div>
-                  </div>
-                  <div>
-                    <div className="font-serif text-2xl font-bold text-gold">15</div>
-                    <div className="text-sm text-coffee-medium">Countries</div>
-                  </div>
+          <div className="bg-card rounded-3xl p-10 shadow-warm border border-gold/10 backdrop-blur-sm">
+            <div className="text-center">
+              <div className="font-serif text-7xl font-bold text-gold mb-4">2020</div>
+              <div className="text-cream/80 text-lg mb-8">Founded with Passion</div>
+              <div className="grid grid-cols-2 gap-6 text-center">
+                <div className="bg-card/50 rounded-2xl p-4 border border-gold/10">
+                  <div className="font-serif text-3xl font-bold text-gold">50k+</div>
+                  <div className="text-sm text-cream/80 font-medium">Cups Served</div>
+                </div>
+                <div className="bg-card/50 rounded-2xl p-4 border border-gold/10">
+                  <div className="font-serif text-3xl font-bold text-gold">15</div>
+                  <div className="text-sm text-cream/80 font-medium">Countries</div>
                 </div>
               </div>
             </div>
@@ -108,19 +112,22 @@ const About = () => {
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <Card key={index} className="group hover:shadow-warm transition-all duration-300 transform hover:-translate-y-1 bg-gradient-card border-0">
-              <CardContent className="p-8 text-center">
-                <div className="mb-6">
-                  <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-full flex items-center justify-center group-hover:shadow-gold transition-all duration-300">
-                    <value.icon className="h-8 w-8 text-coffee-dark" />
-                  </div>
+            <div 
+              key={index} 
+              className="group bg-card rounded-3xl p-6 sm:p-8 transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 border border-border hover:border-primary/30 text-center backdrop-blur-sm"
+            >
+              <div className="mb-6">
+                <div className="w-20 h-20 mx-auto bg-gradient-accent rounded-full flex items-center justify-center group-hover:shadow-gold transition-all duration-500 group-hover:scale-110">
+                  <value.icon className="h-10 w-10 text-coffee-dark" />
                 </div>
-                <h4 className="font-serif text-xl font-semibold text-coffee-dark mb-4">{value.title}</h4>
-                <p className="text-coffee-medium text-sm leading-relaxed">{value.description}</p>
-              </CardContent>
-            </Card>
+              </div>
+              <h4 className="font-serif text-xl font-bold text-cream mb-4 group-hover:text-gold transition-colors duration-300">
+                {value.title}
+              </h4>
+              <p className="text-cream/70 text-sm leading-relaxed">{value.description}</p>
+            </div>
           ))}
         </div>
       </div>

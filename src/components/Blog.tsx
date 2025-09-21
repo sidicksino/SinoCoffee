@@ -43,64 +43,65 @@ const Blog = () => {
     <section id="blog" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-coffee-dark mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Coffee Stories
           </h2>
-          <p className="text-xl text-coffee-medium max-w-3xl mx-auto leading-relaxed">
-            Dive deep into the world of coffee with our expert insights, brewing guides, 
-            and stories from coffee farms around the globe.
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
+            <span className="hidden sm:inline">Dive deep into the world of coffee with our expert insights, brewing guides, 
+            and stories from coffee farms around the globe.</span>
+            <span className="sm:hidden">Expert insights and coffee stories from around the globe.</span>
           </p>
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
           {blogPosts.map((post) => (
-            <Card key={post.id} className="group hover:shadow-warm transition-all duration-300 transform hover:-translate-y-2 bg-gradient-card border-0 overflow-hidden">
+            <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 bg-card border overflow-hidden">
               <CardContent className="p-0">
                 {/* Image Placeholder */}
-                <div className="relative h-48 bg-warm-bg overflow-hidden">
+                <div className="relative h-36 sm:h-40 lg:h-48 bg-muted overflow-hidden">
                   <div className="w-full h-full flex items-center justify-center">
-                    <post.icon className="h-12 w-12 text-coffee-light" />
+                    <post.icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-muted-foreground" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-gradient-accent text-coffee-dark px-3 py-1 rounded-full text-sm font-semibold shadow-gold">
+                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-primary text-primary-foreground px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     {post.category}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center text-sm text-coffee-light mb-3 space-x-4">
+                <div className="p-4 sm:p-5 lg:p-6">
+                  <div className="flex items-center text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 space-x-3 sm:space-x-4">
                     <div className="flex items-center space-x-1">
-                      <User className="h-4 w-4" />
-                      <span>{post.author}</span>
+                      <User className="h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="truncate">{post.author}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <Calendar className="h-4 w-4" />
-                      <span>{post.date}</span>
+                      <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="truncate">{post.date}</span>
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-xl font-semibold text-coffee-dark mb-3 group-hover:text-coffee-medium transition-colors duration-300">
+                  <h3 className="font-serif text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
                     {post.title}
                   </h3>
                   
-                  <p className="text-coffee-medium text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-coffee-light">{post.readTime}</span>
+                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-coffee-dark hover:text-coffee-medium hover:bg-transparent p-0 font-medium group"
+                      className="text-foreground hover:text-primary hover:bg-transparent p-0 font-medium group text-xs sm:text-sm"
                     >
                       Read More
-                      <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
                   </div>
                 </div>
@@ -114,7 +115,7 @@ const Blog = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            className="border-coffee-dark text-coffee-dark hover:bg-coffee-dark hover:text-cream"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
             View All Articles
           </Button>

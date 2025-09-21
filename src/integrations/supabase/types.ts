@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      coffee_shops: {
+        Row: {
+          address: string
+          created_at: string
+          description: string | null
+          hours: string | null
+          id: string
+          image_url: string | null
+          latitude: number
+          longitude: number
+          name: string
+          phone: string | null
+          rating: number | null
+          specialty: string | null
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          description?: string | null
+          hours?: string | null
+          id?: string
+          image_url?: string | null
+          latitude: number
+          longitude: number
+          name: string
+          phone?: string | null
+          rating?: number | null
+          specialty?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          description?: string | null
+          hours?: string | null
+          id?: string
+          image_url?: string | null
+          latitude?: number
+          longitude?: number
+          name?: string
+          phone?: string | null
+          rating?: number | null
+          specialty?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       favorites: {
         Row: {
           category: string
